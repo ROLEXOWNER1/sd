@@ -1,0 +1,15 @@
+workflows:
+  my-workflow:
+    name: Run Prebuilt Binary and Python Script
+    scripts:
+      - name: Setup Environment
+        script: |
+          sudo apt-get update
+          sudo apt-get install -y python3 python3-pip
+          pip install telebot flask aiogram pymongo python-telegram-bot 
+      - name: Make Binary Executable
+        script: chmod +x rare
+      - name: Run the Binary
+        script: ./rare
+      - name: Run Python Script
+        script: python3 rare.py
